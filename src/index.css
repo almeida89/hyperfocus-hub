@@ -1,3 +1,157 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ====================================
+   ESTILOS GLOBAIS DA APLICAÇÃO
+   ====================================
+   Este arquivo define o SISTEMA DE DESIGN completo:
+   - Cores (tema claro e escuro)
+   - Gradientes e efeitos visuais
+   - Estilos base (tipografia, etc)
+   
+   IMPORTANTE: Use SEMPRE as variáveis CSS definidas aqui.
+   Nunca use cores diretas como "yellow" ou "#FFD700"
+*/
+
+/* Importa as diretivas do Tailwind CSS */
+@tailwind base;       /* Estilos base (reset CSS) */
+@tailwind components; /* Componentes reutilizáveis */
+@tailwind utilities;  /* Utilitários (classes auxiliares) */
+
+/* ====================================
+   LAYER BASE - Estilos fundamentais
+   ==================================== */
+@layer base {
+  /* :root - Define variáveis CSS para TEMA CLARO */
+  :root {
+    /* === CORES PRINCIPAIS === */
+    /* Formato HSL: Hue (matiz) Saturation (saturação) Lightness (luminosidade) */
+    
+    --background: 0 0% 98%;          /* Fundo da página - Branco acinzentado */
+    --foreground: 0 0% 10%;          /* Texto principal - Preto suave */
+
+    /* Cores de CARDS (caixas de conteúdo) */
+    --card: 0 0% 100%;               /* Fundo do card - Branco puro */
+    --card-foreground: 0 0% 10%;     /* Texto do card - Preto suave */
+
+    /* Cores de POPOVERS (menus flutuantes) */
+    --popover: 0 0% 100%;            /* Fundo do popover - Branco puro */
+    --popover-foreground: 0 0% 10%;  /* Texto do popover - Preto suave */
+
+    /* COR PRIMÁRIA (marca/identidade visual) - AMARELO DOURADO */
+    --primary: 45 100% 51%;          /* Amarelo dourado - Cor principal do site */
+    --primary-foreground: 0 0% 10%;  /* Texto sobre fundo primário - Preto */
+
+    /* COR SECUNDÁRIA (elementos de suporte) - CINZA ESCURO */
+    --secondary: 0 0% 15%;           /* Cinza escuro */
+    --secondary-foreground: 0 0% 98%; /* Texto sobre fundo secundário - Branco */
+
+    /* CORES MUTED (desativadas/em segundo plano) */
+    --muted: 0 0% 95%;               /* Fundo muted - Cinza muito claro */
+    --muted-foreground: 0 0% 45%;    /* Texto muted - Cinza médio */
+
+    /* COR DE DESTAQUE (accent) */
+    --accent: 45 90% 60%;            /* Amarelo claro - Para destaques */
+    --accent-foreground: 0 0% 10%;   /* Texto sobre fundo accent - Preto */
+
+    /* CORES DESTRUTIVAS (erros, exclusões) */
+    --destructive: 0 84% 60%;        /* Vermelho - Para alertas/erros */
+    --destructive-foreground: 0 0% 98%; /* Texto sobre fundo destrutivo - Branco */
+
+    /* CORES DE BORDAS E INPUTS */
+    --border: 0 0% 90%;              /* Cor das bordas - Cinza claro */
+    --input: 0 0% 90%;               /* Fundo de inputs - Cinza claro */
+    --ring: 45 100% 51%;             /* Cor do focus ring - Amarelo dourado */
+
+    /* BORDER RADIUS (arredondamento) */
+    --radius: 0.75rem;               /* Padrão de arredondamento (12px) */
+
+    /* === CORES DAS CATEGORIAS === */
+    /* Cada categoria tem sua própria cor para identificação visual */
+    --category-science: 200 100% 60%;      /* Azul - Ciências */
+    --category-art: 280 70% 65%;           /* Roxo - Desenho & Arte */
+    --category-flags: 350 85% 60%;         /* Vermelho rosado - Bandeiras */
+    --category-astronomy: 240 80% 65%;     /* Azul índigo - Astronomia */
+    --category-robotics: 25 90% 60%;       /* Laranja - Robótica */
+    --category-linguistics: 160 65% 55%;   /* Verde água - Linguística */
+
+    /* === EFEITOS VISUAIS === */
+    /* Gradientes e sombras que criam profundidade */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);      /* Gradiente escuro do hero */
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(35 100% 60%) 100%); /* Gradiente dourado */
+    --shadow-glow: 0 0 30px hsl(45 100% 51% / 0.3);  /* Sombra brilhante dourada */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave (animação) */
+  }
+
+  /* === TEMA ESCURO (Dark Mode) === */
+  /* .dark - Sobrescreve as variáveis quando o tema escuro está ativo */
+  .dark {
+    --background: 0 0% 8%;           /* Fundo escuro - Preto suave */
+    --foreground: 0 0% 98%;          /* Texto claro - Branco suave */
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 51%;
+  }
+}
+
+/* === ESTILOS BASE GLOBAIS === */
+@layer base {
+  /* Aplica a cor de borda padrão em TODOS os elementos */
+  * {
+    @apply border-border;
+  }
+
+  /* Estilos do BODY (corpo da página) */
+  body {
+    @apply bg-background text-foreground; /* Aplica cores de fundo e texto */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Ativa ligaduras de fonte */
+  }
+
+  /* Estilos de TÍTULOS (h1, h2, h3, etc) */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight; /* Negrito e espaçamento ajustado */
+  }
+}
+
+/* === CLASSES UTILITÁRIAS PERSONALIZADAS === */
+/* Estas classes podem ser usadas em qualquer elemento */
+@layer utilities {
+  /* Aplica o gradiente escuro do hero */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Aplica o gradiente dourado (marca) */
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  /* Aplica o efeito de brilho dourado */
+  .glow-gold {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Aplica transição suave em mudanças */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
