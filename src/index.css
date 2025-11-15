@@ -142,7 +142,7 @@
 
   /* Aplica o gradiente dourado (marca) */
   .gradient-gold {
-    background: var(--gradient-gold);
+    background-image: var(--gradient-gold);
   }
 
   /* Aplica o efeito de brilho dourado */
