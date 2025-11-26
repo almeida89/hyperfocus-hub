@@ -7,27 +7,27 @@
 // 3. Componentes de notificação (toasts)
 
 // === IMPORTAÇÕES DE COMPONENTES DE UI ===
-import { Toaster } from "@/components/ui/toaster"; // Sistema de notificações (toast)
-import { Toaster as Sonner } from "@/components/ui/sonner"; // Sistema alternativo de notificações
-import { TooltipProvider } from "@/components/ui/tooltip"; // Provedor de tooltips (dicas)
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // === IMPORTAÇÕES DE GERENCIAMENTO DE DADOS ===
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; // Gerencia requisições de API
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; 
 
 // === IMPORTAÇÕES DE NAVEGAÇÃO ===
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // Sistema de rotas
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 
 // === IMPORTAÇÕES DE CONTEXTOS ===
-import { GamificationProvider } from "@/contexts/GamificationContext"; // Contexto de gamificação
+import { GamificationProvider } from "@/contexts/GamificationContext";
 
 // === IMPORTAÇÕES DE PÁGINAS ===
-import Index from "./pages/Index"; // Página inicial (homepage)
-import Explorar from "./pages/Explorar"; // Página de exploração de atividades
-import Atividade from "./pages/Atividade"; // Página de detalhes de uma atividade
-import Comunidade from "./pages/Comunidade"; // Galeria da comunidade
-import DashboardPais from "./pages/DashboardPais"; // Dashboard para pais
-import Gamificacao from "./pages/Gamificacao"; // Página de gamificação
-import NotFound from "./pages/NotFound"; // Página 404 (não encontrada)
+import Index from "./pages/Index";
+import Explorar from "./pages/Explorar";
+import Atividade from "./pages/Atividade";
+import Comunidade from "./pages/Comunidade";
+import DashboardPais from "./pages/DashboardPais"; 
+import Gamificacao from "./pages/Gamificacao"; 
+import NotFound from "./pages/NotFound"; 
 
 // Cria um cliente para gerenciar cache e estado de requisições
 const queryClient = new QueryClient();

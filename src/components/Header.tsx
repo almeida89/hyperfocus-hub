@@ -13,7 +13,7 @@ const Header = () => {
     const navItems = [
         { to: "/", label: "Início", icon: Home },
         { to: "/explorar", label: "Explorar", icon: Compass },
-        { to: "/explorar", label: "Atividades", icon: Compass },
+        { to: "/atividades", label: "Atividades", icon: Compass },
         { to: "/comunidade", label: "Comunidade", icon: Users },
         { to: "/gamificacao", label: "Gamificação", icon: Trophy },
         { to: "/dashboard-pais", label: "Para Pais", icon: Heart },
